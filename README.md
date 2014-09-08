@@ -1,4 +1,4 @@
-HTML5 Conway's Game of Life
+######HTML5 Conway's Game of Life
 
 
 The "game" is a zero-player game, meaning that its evolution is determined by its initial configuration and does not require any other input. You can setup an initial configuration by clicking on the cells or  selecting one of the predefined patterns. After configuring the initial pattern, just hit start and see the game evolving. You can set the time between each iteration, the lower the interval the faster it evolves. 
