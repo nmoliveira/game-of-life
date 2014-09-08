@@ -13,3 +13,8 @@ There are only 4 rules that determines how the game evolves:
 <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life" target="_blank">Game of Life on Wikipedia</a>
 
 [Demo](http://nunooliveira.me/games/game-of-life)
+
+######Technologies
+* Javascript
+* Knockout
+* Jasmine
