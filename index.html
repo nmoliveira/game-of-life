@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML5 Conway's Game of Life</title>
+    <link rel="stylesheet" type="text/css" href="lib/css/styles.css">
+</head>
+<body>
+
+<h1>HTML5 Conway's Game of Life</h1>
+
+<!-- Controls -->
+<input data-bind="click: start" type="button" value="Start">
+<input data-bind="click: stop" type="button" value="Stop">
+<input data-bind="click: clear" type="button" value="Clear">
+<br/>
+<input data-bind="value: interval" type="range" min="100", max="2000" step="100">
+<span data-bind="text: interval"></span> ms
+<br/>
+<select data-bind="event: { change: onChangePattern }">
+    <option>Default Patterns</option>
+    <option value="blinker">Blinker</option>
+    <option value="toad">Toad</option>
+    <option value="beacon">Beacon</option>
+    <option value="pulsar">Pulsar</option>
+    <option value="square">Square</option>
+</select>
+<a data-bind="click: toogleHelp" href="" >Need Help?</a>
+<!-- /Controls -->
+
+<!-- Board -->
+
+<table data-bind="foreach: game.board.lines">
+    <tr data-bind="foreach: cells">
+        <td data-bind="css: { 'alive' : active, 'dead': !active() }, click: $root.toggleCellStatus"></td>
+    </tr>
+</table>
+
+<!-- /Board -->
+
+<!-- Links -->
+<p>
+    <a href="https://github.com/nmoliveira/game-of-life" target="_blank">Source Code</a>
+</p>
+<!-- /Links -->
+
+
+<!-- Help -->
+<div data-bind="visible: helpVisible" id="help" style="display: none"> 
+
+    <a data-bind="click: toogleHelp" href="">Close</a>
+    <h3>Welcome to Conway's Game of Life</h3>
+    </p>
+        The "game" is a zero-player game, meaning that its evolution is determined by its initial configuration and does not require any other input. You can setup an initial configuration by clicking on the cells or  selecting one of the predefined patterns. After configuring the initial pattern, just hit start and see the game evolving. You can set the time between each iteration, the lower the interval the faster it evolves. 
+
+        There are only 4 rules that determines how the game evolves:
+
+        <ol>
+            <li>Any live cell with fewer than two live neighbours dies, as if caused by under-population.</li>
+            <li>Any live cell with two or three live neighbours lives on to the next generation.</li>
+            <li>Any live cell with more than three live neighbours dies, as if by overcrowding.</li>
+            <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
+        </ol>
+
+        <br/><br/>
+        <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life" target="_blank">Game of Life on Wikipedia</a>
+    </p>
+
+</div>
+<!-- /HELP  -->
+
+<script src="lib/js/vendor/knockout.js"></script>
+<script src="lib/js/game.js"></script>
+<script src="lib/js/game-render.js"></script>
+<script type="text/javascript">
+    
+    window.onload = function () {
+
+        var game = new GameOfLife.Game(GameOfLife.Line, GameOfLife.Cell);
+        var renderer =  new GameRender(game);
+        renderer.init();
+
+    };
+
+</script>
+
+
+</body>
+</html>
