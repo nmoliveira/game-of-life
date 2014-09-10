@@ -32,12 +32,12 @@ describe("Game of Life", function () {
         game.createBoard(3, 3);
 
         // number of lines should be 3
-        expect(game.board.lines.length).toEqual(3);
+        expect(game.board.lines().length).toEqual(3);
 
         // number of cells per line should be 3
-        expect(game.board.lines[0].cells.length).toEqual(3);
-        expect(game.board.lines[1].cells.length).toEqual(3);
-        expect(game.board.lines[2].cells.length).toEqual(3);
+        expect(game.board.lines()[0].cells.length).toEqual(3);
+        expect(game.board.lines()[1].cells.length).toEqual(3);
+        expect(game.board.lines()[2].cells.length).toEqual(3);
     });
 
     it("Should be able to clear the board", function () {
@@ -48,15 +48,15 @@ describe("Game of Life", function () {
         // [1,1,1]
         // [1,1,1]
 
-        game.board.lines[0].cells[0].active(true);
-        game.board.lines[0].cells[1].active(true);
-        game.board.lines[0].cells[2].active(true);
-        game.board.lines[1].cells[0].active(true);
-        game.board.lines[1].cells[1].active(true);
-        game.board.lines[1].cells[2].active(true);
-        game.board.lines[2].cells[0].active(true);
-        game.board.lines[2].cells[1].active(true);
-        game.board.lines[2].cells[2].active(true);
+        game.board.lines()[0].cells[0].active(true);
+        game.board.lines()[0].cells[1].active(true);
+        game.board.lines()[0].cells[2].active(true);
+        game.board.lines()[1].cells[0].active(true);
+        game.board.lines()[1].cells[1].active(true);
+        game.board.lines()[1].cells[2].active(true);
+        game.board.lines()[2].cells[0].active(true);
+        game.board.lines()[2].cells[1].active(true);
+        game.board.lines()[2].cells[2].active(true);
 
         game.clearBoard();
 
@@ -65,15 +65,15 @@ describe("Game of Life", function () {
         // [0,0,0]
         // [0,0,0]
 
-        expect(game.board.lines[0].cells[0].active()).toEqual(false);
-        expect(game.board.lines[0].cells[1].active()).toEqual(false);
-        expect(game.board.lines[0].cells[2].active()).toEqual(false);
-        expect(game.board.lines[1].cells[0].active()).toEqual(false);
-        expect(game.board.lines[1].cells[1].active()).toEqual(false);
-        expect(game.board.lines[1].cells[2].active()).toEqual(false);
-        expect(game.board.lines[2].cells[0].active()).toEqual(false);
-        expect(game.board.lines[2].cells[1].active()).toEqual(false);
-        expect(game.board.lines[2].cells[2].active()).toEqual(false);
+        expect(game.board.lines()[0].cells[0].active()).toEqual(false);
+        expect(game.board.lines()[0].cells[1].active()).toEqual(false);
+        expect(game.board.lines()[0].cells[2].active()).toEqual(false);
+        expect(game.board.lines()[1].cells[0].active()).toEqual(false);
+        expect(game.board.lines()[1].cells[1].active()).toEqual(false);
+        expect(game.board.lines()[1].cells[2].active()).toEqual(false);
+        expect(game.board.lines()[2].cells[0].active()).toEqual(false);
+        expect(game.board.lines()[2].cells[1].active()).toEqual(false);
+        expect(game.board.lines()[2].cells[2].active()).toEqual(false);
     });
 
     it("Should count the number of alive neighbours", function () {
@@ -84,9 +84,9 @@ describe("Game of Life", function () {
         // [1,1,1]
         // [0,0,0]
 
-        game.board.lines[1].cells[0].active(true);
-        game.board.lines[1].cells[1].active(true);
-        game.board.lines[1].cells[2].active(true);
+        game.board.lines()[1].cells[0].active(true);
+        game.board.lines()[1].cells[1].active(true);
+        game.board.lines()[1].cells[2].active(true);
 
         expect(game.getLiveNeighbours(0, 0)).toEqual(2);
         expect(game.getLiveNeighbours(0,1)).toEqual(3);
@@ -109,9 +109,9 @@ describe("Game of Life", function () {
         
         game.createBoard(3, 3);
         
-        game.board.lines[1].cells[0].active(true);
-        game.board.lines[1].cells[1].active(true);
-        game.board.lines[1].cells[2].active(true);
+        game.board.lines()[1].cells[0].active(true);
+        game.board.lines()[1].cells[1].active(true);
+        game.board.lines()[1].cells[2].active(true);
 
         game.next();
 
@@ -119,15 +119,15 @@ describe("Game of Life", function () {
         // [0,1,0]
         // [0,1,0]
         // [0,1,0]
-        expect(game.board.lines[0].cells[0].active()).toEqual(false);
-        expect(game.board.lines[0].cells[1].active()).toEqual(true);
-        expect(game.board.lines[0].cells[2].active()).toEqual(false);
-        expect(game.board.lines[1].cells[0].active()).toEqual(false);
-        expect(game.board.lines[1].cells[1].active()).toEqual(true);
-        expect(game.board.lines[1].cells[2].active()).toEqual(false);
-        expect(game.board.lines[2].cells[0].active()).toEqual(false);
-        expect(game.board.lines[2].cells[1].active()).toEqual(true);
-        expect(game.board.lines[2].cells[2].active()).toEqual(false);
+        expect(game.board.lines()[0].cells[0].active()).toEqual(false);
+        expect(game.board.lines()[0].cells[1].active()).toEqual(true);
+        expect(game.board.lines()[0].cells[2].active()).toEqual(false);
+        expect(game.board.lines()[1].cells[0].active()).toEqual(false);
+        expect(game.board.lines()[1].cells[1].active()).toEqual(true);
+        expect(game.board.lines()[1].cells[2].active()).toEqual(false);
+        expect(game.board.lines()[2].cells[0].active()).toEqual(false);
+        expect(game.board.lines()[2].cells[1].active()).toEqual(true);
+        expect(game.board.lines()[2].cells[2].active()).toEqual(false);
 
     });
 
@@ -141,12 +141,12 @@ describe("Game of Life", function () {
         
         game.createBoard(4, 4);
         
-        game.board.lines[1].cells[1].active(true);
-        game.board.lines[1].cells[2].active(true);
-        game.board.lines[1].cells[3].active(true);
-        game.board.lines[2].cells[0].active(true);
-        game.board.lines[2].cells[1].active(true);
-        game.board.lines[2].cells[2].active(true);
+        game.board.lines()[1].cells[1].active(true);
+        game.board.lines()[1].cells[2].active(true);
+        game.board.lines()[1].cells[3].active(true);
+        game.board.lines()[2].cells[0].active(true);
+        game.board.lines()[2].cells[1].active(true);
+        game.board.lines()[2].cells[2].active(true);
 
         game.next();
 
@@ -156,22 +156,22 @@ describe("Game of Life", function () {
         // [1,0,0,1]
         // [0,1,0,0]
 
-        expect(game.board.lines[0].cells[0].active()).toEqual(false);
-        expect(game.board.lines[0].cells[1].active()).toEqual(false);
-        expect(game.board.lines[0].cells[2].active()).toEqual(true);
-        expect(game.board.lines[0].cells[3].active()).toEqual(false);
-        expect(game.board.lines[1].cells[0].active()).toEqual(true);
-        expect(game.board.lines[1].cells[1].active()).toEqual(false);
-        expect(game.board.lines[1].cells[2].active()).toEqual(false);
-        expect(game.board.lines[1].cells[3].active()).toEqual(true);
-        expect(game.board.lines[2].cells[0].active()).toEqual(true);
-        expect(game.board.lines[2].cells[1].active()).toEqual(false);
-        expect(game.board.lines[2].cells[2].active()).toEqual(false);
-        expect(game.board.lines[2].cells[3].active()).toEqual(true);
-        expect(game.board.lines[3].cells[0].active()).toEqual(false);
-        expect(game.board.lines[3].cells[1].active()).toEqual(true);
-        expect(game.board.lines[3].cells[2].active()).toEqual(false);
-        expect(game.board.lines[3].cells[3].active()).toEqual(false);
+        expect(game.board.lines()[0].cells[0].active()).toEqual(false);
+        expect(game.board.lines()[0].cells[1].active()).toEqual(false);
+        expect(game.board.lines()[0].cells[2].active()).toEqual(true);
+        expect(game.board.lines()[0].cells[3].active()).toEqual(false);
+        expect(game.board.lines()[1].cells[0].active()).toEqual(true);
+        expect(game.board.lines()[1].cells[1].active()).toEqual(false);
+        expect(game.board.lines()[1].cells[2].active()).toEqual(false);
+        expect(game.board.lines()[1].cells[3].active()).toEqual(true);
+        expect(game.board.lines()[2].cells[0].active()).toEqual(true);
+        expect(game.board.lines()[2].cells[1].active()).toEqual(false);
+        expect(game.board.lines()[2].cells[2].active()).toEqual(false);
+        expect(game.board.lines()[2].cells[3].active()).toEqual(true);
+        expect(game.board.lines()[3].cells[0].active()).toEqual(false);
+        expect(game.board.lines()[3].cells[1].active()).toEqual(true);
+        expect(game.board.lines()[3].cells[2].active()).toEqual(false);
+        expect(game.board.lines()[3].cells[3].active()).toEqual(false);
 
     });
 
@@ -185,14 +185,14 @@ describe("Game of Life", function () {
 
         game.createBoard(4, 4);
 
-        game.board.lines[0].cells[0].active(true);
-        game.board.lines[0].cells[1].active(true);
-        game.board.lines[1].cells[0].active(true);
-        game.board.lines[1].cells[1].active(true);
-        game.board.lines[2].cells[2].active(true);
-        game.board.lines[2].cells[3].active(true);
-        game.board.lines[3].cells[2].active(true);
-        game.board.lines[3].cells[3].active(true);
+        game.board.lines()[0].cells[0].active(true);
+        game.board.lines()[0].cells[1].active(true);
+        game.board.lines()[1].cells[0].active(true);
+        game.board.lines()[1].cells[1].active(true);
+        game.board.lines()[2].cells[2].active(true);
+        game.board.lines()[2].cells[3].active(true);
+        game.board.lines()[3].cells[2].active(true);
+        game.board.lines()[3].cells[3].active(true);
 
         game.next();
 
@@ -202,22 +202,22 @@ describe("Game of Life", function () {
         // [0,0,0,1]
         // [0,0,1,1]
 
-        expect(game.board.lines[0].cells[0].active()).toEqual(true);
-        expect(game.board.lines[0].cells[1].active()).toEqual(true);
-        expect(game.board.lines[0].cells[2].active()).toEqual(false);
-        expect(game.board.lines[0].cells[3].active()).toEqual(false);
-        expect(game.board.lines[1].cells[0].active()).toEqual(true);
-        expect(game.board.lines[1].cells[1].active()).toEqual(false);
-        expect(game.board.lines[1].cells[2].active()).toEqual(false);
-        expect(game.board.lines[1].cells[3].active()).toEqual(false);
-        expect(game.board.lines[2].cells[0].active()).toEqual(false);
-        expect(game.board.lines[2].cells[1].active()).toEqual(false);
-        expect(game.board.lines[2].cells[2].active()).toEqual(false);
-        expect(game.board.lines[2].cells[3].active()).toEqual(true);
-        expect(game.board.lines[3].cells[0].active()).toEqual(false);
-        expect(game.board.lines[3].cells[1].active()).toEqual(false);
-        expect(game.board.lines[3].cells[2].active()).toEqual(true);
-        expect(game.board.lines[3].cells[3].active()).toEqual(true);
+        expect(game.board.lines()[0].cells[0].active()).toEqual(true);
+        expect(game.board.lines()[0].cells[1].active()).toEqual(true);
+        expect(game.board.lines()[0].cells[2].active()).toEqual(false);
+        expect(game.board.lines()[0].cells[3].active()).toEqual(false);
+        expect(game.board.lines()[1].cells[0].active()).toEqual(true);
+        expect(game.board.lines()[1].cells[1].active()).toEqual(false);
+        expect(game.board.lines()[1].cells[2].active()).toEqual(false);
+        expect(game.board.lines()[1].cells[3].active()).toEqual(false);
+        expect(game.board.lines()[2].cells[0].active()).toEqual(false);
+        expect(game.board.lines()[2].cells[1].active()).toEqual(false);
+        expect(game.board.lines()[2].cells[2].active()).toEqual(false);
+        expect(game.board.lines()[2].cells[3].active()).toEqual(true);
+        expect(game.board.lines()[3].cells[0].active()).toEqual(false);
+        expect(game.board.lines()[3].cells[1].active()).toEqual(false);
+        expect(game.board.lines()[3].cells[2].active()).toEqual(true);
+        expect(game.board.lines()[3].cells[3].active()).toEqual(true);
 
     });
 

@@ -16,6 +16,13 @@
 <input data-bind="value: interval" type="range" min="100", max="2000" step="100">
 <span data-bind="text: interval"></span> ms
 <br/>
+Board
+<select data-bind="value: boardSize, event: { change: onChangeBoardSize }">
+    <option>12 x 12</option>
+    <option>24 x 24</option>
+    <option>48 x 48</option>
+    <option>60 x 60</option>    
+</select>
 <select data-bind="event: { change: onChangePattern }">
     <option>Default Patterns</option>
     <option value="blinker">Blinker</option>
