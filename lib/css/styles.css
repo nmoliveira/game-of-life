@@ -7,12 +7,12 @@ td
 
 td.alive
 {
-  background-color: black;
+  background-color: #6B0000;
 }
 
 td.dead
 {
-  background-color: white;
+  background-color: #F06161;
 }
 
 body {
@@ -20,6 +20,8 @@ body {
   margin-left: auto;
   text-align: center;
   font-family: 'Lucida Console';
+  background-color: #B61818;
+  color: #6B0000;
 }
 
 table {
@@ -38,6 +40,7 @@ h1 {
 
 a {
   text-decoration: none;
+  color: #FFFFFF;
 }
 
 #help {
@@ -50,8 +53,9 @@ a {
   margin-left: -350px;
   padding: 16px;
   text-align: left;
+  color: #F06161;
   border: 1px solid #CCCCCC;
-  background-color: #FFFFFF;
+  background-color: #6B0000;
 }
 
 #help h3 {
